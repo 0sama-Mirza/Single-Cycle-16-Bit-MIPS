@@ -1,7 +1,10 @@
 # Single-Cycle-16-Bit-MIPS
-Complex Engineering Problem (CEP)
-By:
-Osama Anees, Rayyan Munir and Muneeb Khan. 
+Complex Engineering Problem (CEP) By:
+
+
+Osama Anees, Rayyan Munir and Muneeb Khan.
+
+
 Only Does R-Type Instruction of add,sub,and,or And I-Type Instruction of lw,sw
 # How to compile it?
 ## Download 
