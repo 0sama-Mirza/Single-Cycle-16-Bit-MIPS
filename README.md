@@ -16,7 +16,7 @@ Only Does R-Type Instruction of add,sub,and,or And I-Type Instruction of lw,sw
 1. Open the Single_Cycle_Top_tb.v file. Make sure to edit your "includes" file path in the test bench and Single_Cycle_Top.v file.
 2. Go to terminal and type: 
   + iverilog Single_Cycle_Top_tb.v
-    + This will generate a "a.out" file.
+    + This will generate an "a.out" file.
   + vvp a.out
     + This will convert the .out file into vcd file which gtkwave can read.
   + gtkwave Single_Cycle.vcd
