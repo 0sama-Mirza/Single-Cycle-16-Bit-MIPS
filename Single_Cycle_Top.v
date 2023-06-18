@@ -8,7 +8,7 @@
 `include "/home/baymax/Air-Uni-EE/Verilog/Data_Memory.v"
 `include "/home/baymax/Air-Uni-EE/Verilog/PC_Adder.v"
 `include "/home/baymax/Air-Uni-EE/Verilog/Mux.v"
-module Single_Cycle_Top (random,clk,rst,clk_out,rst_out,Reg_Write_Out,MemWrite_Out,ALUSrc_Out,RegDst_Out,MemToReg_Out,MemRead_Out,ALUOp_Out);
+module Single_Cycle_Top (alu_Carry_Out,alu_Negative_Out,alu_Zero_Out,random,clk,rst,clk_out,rst_out,Reg_Write_Out,MemWrite_Out,ALUSrc_Out,RegDst_Out,MemToReg_Out,MemRead_Out,ALUOp_Out);
     //Declaring Inputs:
     input rst,clk;
 
@@ -27,7 +27,7 @@ module Single_Cycle_Top (random,clk,rst,clk_out,rst_out,Reg_Write_Out,MemWrite_O
     wire [15:0] Mux_Data_Memory_To_Register_File_Write_Back_Result;
 
     //Declaring Outputs:
-    output clk_out,rst_out,Reg_Write_Out,MemWrite_Out,ALUSrc_Out,RegDst_Out,MemToReg_Out,MemRead_Out;
+    output clk_out,rst_out,Reg_Write_Out,MemWrite_Out,ALUSrc_Out,RegDst_Out,MemToReg_Out,MemRead_Out,alu_Negative_Out,alu_Zero_Out,alu_Carry_Out;
     output [1:0] ALUOp_Out;
     output [2:0] random;
     //Assigning The Outputs:
@@ -41,6 +41,11 @@ module Single_Cycle_Top (random,clk,rst,clk_out,rst_out,Reg_Write_Out,MemWrite_O
     assign MemRead_Out = MemRead;
     assign ALUOp_Out = ALUOp;
     assign random = RD_Instr[8:6];
+	 
+	 //assign alu_Zero_Out = ;
+	 //assign alu_Negative_Out = ;
+	 //assign alu_Carry_Out = ;
+	 
     PC PC(
         .clk(clk),
         .rst(rst),
@@ -114,9 +119,9 @@ module Single_Cycle_Top (random,clk,rst,clk_out,rst_out,Reg_Write_Out,MemWrite_O
         .B(Mux_Register_To_ALU_Result),
         .ALUControl(ALUControl_Top),
         .Result(ALU_RESULT),
-        .Negative(),
-        .Carry(),
-        .Zero()
+        .Negative(alu_Negative_Out),
+        .Carry(alu_Carry_Out),
+        .Zero(alu_Zero_Out)
     );
 
     Data_Mem Data_Memory (

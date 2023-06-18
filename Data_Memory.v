@@ -13,7 +13,7 @@ module Data_Mem (A,WD,WE,RE,clk,RD);
 
 
     //Read Functionality:
-    assign RD = ((WE == 1'b0) & (WD == 1'b1)) ? Data_MEM[A] : 0;
+    assign RD = ((WE == 1'b0) & (WD == 1'b1) & (rst)) ? Data_MEM[A] : 16'b0;
     
     //Write Functionality:
     always @(posedge clk) begin
