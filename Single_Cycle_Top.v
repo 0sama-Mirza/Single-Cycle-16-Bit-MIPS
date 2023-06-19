@@ -42,9 +42,9 @@ module Single_Cycle_Top (alu_Carry_Out,alu_Negative_Out,alu_Zero_Out,random,clk,
     assign ALUOp_Out = ALUOp;
     assign random = RD_Instr[8:6];
 	 
-	 //assign alu_Zero_Out = ;
-	 //assign alu_Negative_Out = ;
-	 //assign alu_Carry_Out = ;
+    //assign alu_Zero_Out = ;
+    //assign alu_Negative_Out = ;
+    //assign alu_Carry_Out = ;
 	 
     PC PC(
         .clk(clk),
@@ -130,7 +130,8 @@ module Single_Cycle_Top (alu_Carry_Out,alu_Negative_Out,alu_Zero_Out,random,clk,
         .WE(MemWrite),
         .RE(MemRead),
         .clk(clk),
-        .RD(ReadData)
+        .RD(ReadData),
+        .rst(rst)
     );
 
     Mux Mux_Data_Memory_To_Register_File_Write_Back(

@@ -1,7 +1,7 @@
-module Data_Mem (A,WD,WE,RE,clk,RD);
+module Data_Mem (A,WD,WE,RE,clk,RD,rst);
     //Declaring Inputs:
     input [15:0] A,WD;
-    input clk,WE,RE;
+    input clk,WE,RE,rst;
 
     //Declaruing Outputs:
     output [15:0] RD;
