@@ -1,13 +1,13 @@
-`include "/home/baymax/Air-Uni-EE/Verilog/Program_Counter.v"
-`include "/home/baymax/Air-Uni-EE/Verilog/Instruction_Memory.v"
-`include "/home/baymax/Air-Uni-EE/Verilog/Register_File.v"
-`include "/home/baymax/Air-Uni-EE/Verilog/Sign_Extender.v"
-`include "/home/baymax/Air-Uni-EE/Verilog/ALU.v"
-`include "/home/baymax/Air-Uni-EE/Verilog/Control_Unit.v"
-`include "/home/baymax/Air-Uni-EE/Verilog/ALU_Control.v"
-`include "/home/baymax/Air-Uni-EE/Verilog/Data_Memory.v"
-`include "/home/baymax/Air-Uni-EE/Verilog/PC_Adder.v"
-`include "/home/baymax/Air-Uni-EE/Verilog/Mux.v"
+`include "Src/Program_Counter.v"
+`include "Src/Instruction_Memory.v"
+`include "Src/Register_File.v"
+`include "Src/Sign_Extender.v"
+`include "Src/ALU.v"
+`include "Src/ALU_Control.v"
+`include "Src/ALU_Control.v"
+`include "Src/Data_Memory.v"
+`include "Src/PC_Adder.v"
+`include "Src/Mux.v"
 module Single_Cycle_Top (alu_Carry_Out,alu_Negative_Out,alu_Zero_Out,random,clk,rst,clk_out,rst_out,Reg_Write_Out,MemWrite_Out,ALUSrc_Out,RegDst_Out,MemToReg_Out,MemRead_Out,ALUOp_Out);
     //Declaring Inputs:
     input rst,clk;

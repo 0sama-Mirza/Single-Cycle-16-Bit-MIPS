@@ -1,4 +1,4 @@
-`include "/home/baymax/Air-Uni-EE/Verilog/Single_Cycle_Top.v"
+`include "Src/Single_Cycle_Top.v"
 module Single_Cycle_Top_tb ();
     reg clk=1'b1,rst;
 
