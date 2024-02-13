@@ -16,3 +16,5 @@
 | Name | Type       | Description |
 | ---- | ---------- | ----------- |
 | mem  | reg [15:0] |             |
+
+![Schematic](Instruction_Memory_Sec.svg "Diagram")

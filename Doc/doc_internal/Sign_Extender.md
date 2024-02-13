@@ -10,3 +10,5 @@
 | ------------ | --------- | ------ | ----------- |
 | In_Str       | input     | [15:0] |             |
 | Extended_Out | output    | [15:0] |             |
+
+![Schematic](Sign_Extender_Sec.svg "Diagram")

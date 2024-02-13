@@ -15,3 +15,5 @@
 ## Processes
 - unnamed: ( @(posedge clk) )
   - **Type:** always
+
+![Schematic](Program_Counter_Sec.svg "Diagram")

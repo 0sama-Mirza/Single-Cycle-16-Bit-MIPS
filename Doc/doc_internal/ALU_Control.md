@@ -16,3 +16,5 @@
 | Name         | Type       | Description |
 | ------------ | ---------- | ----------- |
 | ALUControlIn | wire [5:0] |             |
+
+![Schematic](ALU_Control_Sec.svg "Diagram")

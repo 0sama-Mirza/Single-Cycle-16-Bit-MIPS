@@ -12,3 +12,5 @@
 | In2       | input     | [15:0] |             |
 | Selection | input     |        |             |
 | Out       | output    | [15:0] |             |
+
+![Schematic](Mux_Sec.svg "Diagram")

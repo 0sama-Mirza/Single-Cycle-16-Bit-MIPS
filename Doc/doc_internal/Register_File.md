@@ -25,3 +25,5 @@
 ## Processes
 - unnamed: ( @(posedge clk) )
   - **Type:** always
+
+![Schematic](Register_File_Sec.svg "Diagram")

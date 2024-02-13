@@ -58,3 +58,5 @@
 - ALU: alu
 - Data_Memory: Data_Mem
 - Mux_Data_Memory_To_Register_File_Write_Back: Mux
+
+![Schematic](Single_Cycle_Top_Sec.svg "Diagram")

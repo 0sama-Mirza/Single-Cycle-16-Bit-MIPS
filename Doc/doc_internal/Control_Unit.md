@@ -16,3 +16,5 @@
 | MemToReg  | output    |       |             |
 | MemRead   | output    |       |             |
 | ALUOp     | output    | [1:0] |             |
+
+![Schematic](Control_Unit_Sec.svg "Diagram")

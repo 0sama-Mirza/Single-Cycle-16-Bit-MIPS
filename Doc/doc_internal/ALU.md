@@ -26,3 +26,5 @@
 | cout    | wire        |             |
 | mux_1   | wire [15:0] |             |
 | mux_2   | wire [15:0] |             |
+
+![Schematic](ALU_Sec.svg "Diagram")

@@ -23,3 +23,5 @@
 ## Processes
 - unnamed: ( @(posedge clk) )
   - **Type:** always
+
+![Schematic](Data_Memory_Sec.svg "Diagram")
