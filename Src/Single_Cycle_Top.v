@@ -1,13 +1,13 @@
-`include "Src/Program_Counter.v"
-`include "Src/Instruction_Memory.v"
-`include "Src/Register_File.v"
-`include "Src/Sign_Extender.v"
-`include "Src/ALU.v"
-`include "Src/ALU_Control.v"
-`include "Src/ALU_Control.v"
-`include "Src/Data_Memory.v"
-`include "Src/PC_Adder.v"
-`include "Src/Mux.v"
+`include "/home/baymax/Git-Projects/Single-Cycle-16-Bit-MIPS/Src/Program_Counter.v"
+`include "/home/baymax/Git-Projects/Single-Cycle-16-Bit-MIPS/Src/Instruction_Memory.v"
+`include "/home/baymax/Git-Projects/Single-Cycle-16-Bit-MIPS/Src/Register_File.v"
+`include "/home/baymax/Git-Projects/Single-Cycle-16-Bit-MIPS/Src/Sign_Extender.v"
+`include "/home/baymax/Git-Projects/Single-Cycle-16-Bit-MIPS/Src/ALU.v"
+`include "/home/baymax/Git-Projects/Single-Cycle-16-Bit-MIPS/Src/ALU_Control.v"
+`include "/home/baymax/Git-Projects/Single-Cycle-16-Bit-MIPS/Src/Control_Unit.v"
+`include "/home/baymax/Git-Projects/Single-Cycle-16-Bit-MIPS/Src/Data_Memory.v"
+`include "/home/baymax/Git-Projects/Single-Cycle-16-Bit-MIPS/Src/PC_Adder.v"
+`include "/home/baymax/Git-Projects/Single-Cycle-16-Bit-MIPS/Src/Mux.v"
 module Single_Cycle_Top (alu_Carry_Out,alu_Negative_Out,alu_Zero_Out,random,clk,rst,clk_out,rst_out,Reg_Write_Out,MemWrite_Out,ALUSrc_Out,RegDst_Out,MemToReg_Out,MemRead_Out,ALUOp_Out);
     //Declaring Inputs:
     input rst,clk;
