@@ -12,7 +12,7 @@ module control_unit (op,RegWrite,MemWrite,ALUSrc,ALUOp,RegDst,MemToReg,MemRead);
     // |Instruction | OP  | RegDst | ALUSrc | MemToReg | RegWrite | MemRead | MemWrite | ALUOp |
     // |  R-Type    | 000 |    1   |    0   |     0    |     1    |    0    |    0     |   00  |
     // | Load Word  | 001 |    0   |    1   |     1    |     1    |    1    |    0     |   11  |
-    // |Store Word  | 010 |    0   |    1   |     0    |     0    |    1    |    0     |   11  |
+    // |Store Word  | 010 |    0   |    1   |     0    |     0    |    0    |    1     |   11  |
     // ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
     assign RegWrite = ((op == 3'b000) | (op == 3'b001)) ? 1'b1 : 1'b0;// if (op == R-type | op == lw)
 
