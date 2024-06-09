@@ -5,7 +5,7 @@ Complex Engineering Problem (CEP) By:
 Osama Anees, Rayyan Munir and Muneeb Khan.
 
 
-Only Does R-Type Instruction of add,sub,and,or And I-Type Instruction of lw,sw
+Only Does R-Type Instruction of add,sub,and,or And I-Type Instruction of lw,sw, addi, J-type instruction of JUMP.
 # How to compile it?
 ## Download 
 + Icarus Verilog: https://github.com/steveicarus/iverilog
