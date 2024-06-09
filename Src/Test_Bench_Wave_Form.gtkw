@@ -1,0 +1,77 @@
+[*]
+[*] GTKWave Analyzer v3.3.118 (w)1999-2023 BSI
+[*] Sun May 26 08:31:09 2024
+[*]
+[dumpfile] "/home/baymax/Documents/Study/Air-Uni-Things/6th-Semester/Digital-System-Design/HEHEHE/Src/Single_Cycle.vcd"
+[dumpfile_mtime] "Sun May 26 08:23:28 2024"
+[dumpfile_size] 7633
+[savefile] "/home/baymax/Documents/Study/Air-Uni-Things/6th-Semester/Digital-System-Design/HEHEHE/Src/Test_Bench_Wave_Form.gtkw"
+[timestart] 0
+[size] 1366 693
+[pos] -14 -12
+*-8.142682 93 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] Single_Cycle_Top_tb.
+[treeopen] Single_Cycle_Top_tb.Single_Cycle_Top.
+[sst_width] 41
+[signals_width] 166
+[sst_expanded] 0
+[sst_vpaned_height] 189
+@28
+Single_Cycle_Top_tb.clk
+@800208
+-Program Counter
+@28
+Single_Cycle_Top_tb.Single_Cycle_Top.PC.PC_NEXT[15:0]
+@1000208
+-Program Counter
+@800208
+-Instructions
+@28
+Single_Cycle_Top_tb.Single_Cycle_Top.Instruction_Memory.RD[15:0]
+@1000208
+-Instructions
+@800208
+-Register File
+@28
+Single_Cycle_Top_tb.Single_Cycle_Top.Register_File.A1[2:0]
+Single_Cycle_Top_tb.Single_Cycle_Top.Register_File.A2[2:0]
+Single_Cycle_Top_tb.Single_Cycle_Top.Register_File.A3[2:0]
+Single_Cycle_Top_tb.Single_Cycle_Top.Register_File.RD1[15:0]
+Single_Cycle_Top_tb.Single_Cycle_Top.Register_File.RD2[15:0]
+Single_Cycle_Top_tb.Single_Cycle_Top.Register_File.WD3[15:0]
+Single_Cycle_Top_tb.Single_Cycle_Top.Register_File.WE3
+@1000208
+-Register File
+@800208
+-ALU
+@28
+Single_Cycle_Top_tb.Single_Cycle_Top.ALU.Result[15:0]
+@1000208
+-ALU
+@800208
+-Control Unit
+@28
+Single_Cycle_Top_tb.Single_Cycle_Top.Control_Unit.ALUOp[1:0]
+Single_Cycle_Top_tb.Single_Cycle_Top.Control_Unit.ALUSrc
+Single_Cycle_Top_tb.Single_Cycle_Top.Control_Unit.Jump_EN
+Single_Cycle_Top_tb.Single_Cycle_Top.Control_Unit.MemRead
+Single_Cycle_Top_tb.Single_Cycle_Top.Control_Unit.MemToReg
+Single_Cycle_Top_tb.Single_Cycle_Top.Control_Unit.MemWrite
+Single_Cycle_Top_tb.Single_Cycle_Top.Control_Unit.RegDst
+Single_Cycle_Top_tb.Single_Cycle_Top.Control_Unit.RegWrite
+@29
+Single_Cycle_Top_tb.Single_Cycle_Top.Control_Unit.op[2:0]
+@1000208
+-Control Unit
+@800208
+-Data Mem
+@28
+Single_Cycle_Top_tb.Single_Cycle_Top.Data_Memory.A[15:0]
+Single_Cycle_Top_tb.Single_Cycle_Top.Data_Memory.RD[15:0]
+Single_Cycle_Top_tb.Single_Cycle_Top.Data_Memory.RE
+Single_Cycle_Top_tb.Single_Cycle_Top.Data_Memory.WD[15:0]
+Single_Cycle_Top_tb.Single_Cycle_Top.Data_Memory.WE
+@1000208
+-Data Mem
+[pattern_trace] 1
+[pattern_trace] 0

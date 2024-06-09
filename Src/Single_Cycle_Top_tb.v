@@ -1,4 +1,4 @@
-`include "Src/Single_Cycle_Top.v"
+`include "/home/baymax/Documents/Study/Air-Uni-Things/6th-Semester/Digital-System-Design/HEHEHE/Src/Single_Cycle_Top.v"
 module Single_Cycle_Top_tb ();
     reg clk=1'b1,rst;
 
@@ -16,7 +16,7 @@ module Single_Cycle_Top_tb ();
         #150;
 
         rst <=1'b1;
-        #450;
+        #1450;
         $finish;
     end
     initial begin

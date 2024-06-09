@@ -1,20 +1,21 @@
-`include "/home/baymax/Git-Projects/Single-Cycle-16-Bit-MIPS/Src/Program_Counter.v"
-`include "/home/baymax/Git-Projects/Single-Cycle-16-Bit-MIPS/Src/Instruction_Memory.v"
-`include "/home/baymax/Git-Projects/Single-Cycle-16-Bit-MIPS/Src/Register_File.v"
-`include "/home/baymax/Git-Projects/Single-Cycle-16-Bit-MIPS/Src/Sign_Extender.v"
-`include "/home/baymax/Git-Projects/Single-Cycle-16-Bit-MIPS/Src/ALU.v"
-`include "/home/baymax/Git-Projects/Single-Cycle-16-Bit-MIPS/Src/ALU_Control.v"
-`include "/home/baymax/Git-Projects/Single-Cycle-16-Bit-MIPS/Src/Control_Unit.v"
-`include "/home/baymax/Git-Projects/Single-Cycle-16-Bit-MIPS/Src/Data_Memory.v"
-`include "/home/baymax/Git-Projects/Single-Cycle-16-Bit-MIPS/Src/PC_Adder.v"
-`include "/home/baymax/Git-Projects/Single-Cycle-16-Bit-MIPS/Src/Mux.v"
+`include "/home/baymax/Documents/Study/Air-Uni-Things/6th-Semester/Digital-System-Design/HEHEHE/Src/Program_Counter.v"
+`include "/home/baymax/Documents/Study/Air-Uni-Things/6th-Semester/Digital-System-Design/HEHEHE/Src/Instruction_Memory.v"
+`include "/home/baymax/Documents/Study/Air-Uni-Things/6th-Semester/Digital-System-Design/HEHEHE/Src/Register_File.v"
+`include "/home/baymax/Documents/Study/Air-Uni-Things/6th-Semester/Digital-System-Design/HEHEHE/Src/Sign_Extender.v"
+`include "/home/baymax/Documents/Study/Air-Uni-Things/6th-Semester/Digital-System-Design/HEHEHE/Src/ALU.v"
+`include "/home/baymax/Documents/Study/Air-Uni-Things/6th-Semester/Digital-System-Design/HEHEHE/Src/ALU_Control.v"
+`include "/home/baymax/Documents/Study/Air-Uni-Things/6th-Semester/Digital-System-Design/HEHEHE/Src/Control_Unit.v"
+`include "/home/baymax/Documents/Study/Air-Uni-Things/6th-Semester/Digital-System-Design/HEHEHE/Src/Data_Memory.v"
+`include "/home/baymax/Documents/Study/Air-Uni-Things/6th-Semester/Digital-System-Design/HEHEHE/Src/PC_Adder.v"
+`include "/home/baymax/Documents/Study/Air-Uni-Things/6th-Semester/Digital-System-Design/HEHEHE/Src/Mux.v"
+`include "/home/baymax/Documents/Study/Air-Uni-Things/6th-Semester/Digital-System-Design/HEHEHE/Src/Mux_RF_I_R.v"
 module Single_Cycle_Top (alu_Carry_Out,alu_Negative_Out,alu_Zero_Out,random,clk,rst,clk_out,rst_out,Reg_Write_Out,MemWrite_Out,ALUSrc_Out,RegDst_Out,MemToReg_Out,MemRead_Out,ALUOp_Out);
     //Declaring Inputs:
     input rst,clk;
 
     wire[15:0] PC_Top,RD_Instr,RD1_Top,RD2_Top,SignExt_Top,ALU_RESULT;// For Connecting RD (From Instruction Memory) To Register File
     //Control Unit's Wires:
-    wire RegWrite,MemWrite,ALUSrc,RegDst,MemToReg,MemRead;
+    wire RegWrite,MemWrite,ALUSrc,RegDst,MemToReg,MemRead,Jump_EN;
     wire [1:0] ALUOp;
     //ALU_Control's Wires:
     wire [2:0] ALUControl_Top;
@@ -22,9 +23,12 @@ module Single_Cycle_Top (alu_Carry_Out,alu_Negative_Out,alu_Zero_Out,random,clk,
     wire [15:0] ReadData;
     //PC's Wires:
     wire [15:0] NEW_PC;
+    //Jump Address Or New PC:
+    wire [15:0] Jump_Adrr_Or_New_PC;
     //Mux_Register_To_ALU Result:
     wire [15:0] Mux_Register_To_ALU_Result;
     wire [15:0] Mux_Data_Memory_To_Register_File_Write_Back_Result;
+    wire [2:0] Register_Address_Write;
 
     //Declaring Outputs:
     output clk_out,rst_out,Reg_Write_Out,MemWrite_Out,ALUSrc_Out,RegDst_Out,MemToReg_Out,MemRead_Out,alu_Negative_Out,alu_Zero_Out,alu_Carry_Out;
@@ -41,7 +45,6 @@ module Single_Cycle_Top (alu_Carry_Out,alu_Negative_Out,alu_Zero_Out,random,clk,
     assign MemRead_Out = MemRead;
     assign ALUOp_Out = ALUOp;
     assign random = RD_Instr[8:6];
-	 
     //assign alu_Zero_Out = ;
     //assign alu_Negative_Out = ;
     //assign alu_Carry_Out = ;
@@ -50,7 +53,7 @@ module Single_Cycle_Top (alu_Carry_Out,alu_Negative_Out,alu_Zero_Out,random,clk,
         .clk(clk),
         .rst(rst),
         .pc(PC_Top), 
-        .PC_NEXT(NEW_PC)
+        .PC_NEXT(Jump_Adrr_Or_New_PC)
     );
 
 
@@ -60,6 +63,12 @@ module Single_Cycle_Top (alu_Carry_Out,alu_Negative_Out,alu_Zero_Out,random,clk,
         .Four16Bit(16'b0000000000000100)
     );
 
+    Mux Mux_PC_Jump(
+        .In1(NEW_PC),
+        .In2({3'b000,RD_Instr[15:3]}),
+        .Selection(Jump_EN),
+        .Out(Jump_Adrr_Or_New_PC)
+    );
 
     Instr_Mem Instruction_Memory(
         .rst(rst),
@@ -76,7 +85,8 @@ module Single_Cycle_Top (alu_Carry_Out,alu_Negative_Out,alu_Zero_Out,random,clk,
         .ALUOp(ALUOp),
         .RegDst(RegDst),
         .MemToReg(MemToReg),
-        .MemRead(MemRead)
+        .MemRead(MemRead),
+        .Jump_EN(Jump_EN)
     );
 
     alu_control ALU_Control (
@@ -86,12 +96,17 @@ module Single_Cycle_Top (alu_Carry_Out,alu_Negative_Out,alu_Zero_Out,random,clk,
     );    
 
 
-
+    Mux_RF_I_R Mux_RF_I_OR_R(
+        .In1(RD_Instr[11:9]),
+        .In2(RD_Instr[8:6]),
+        .Sel(ALUSrc & RegWrite & ~(MemToReg)),
+        .Address_Out(Register_Address_Write)
+    );
 
     Reg_File Register_File(
         .A1(RD_Instr[5:3]),
         .A2(RD_Instr[8:6]),
-        .A3(RD_Instr[11:9]),
+        .A3(Register_Address_Write),
         .WD3(Mux_Data_Memory_To_Register_File_Write_Back_Result),
         .WE3(RegWrite),
         .clk(clk),
@@ -101,7 +116,6 @@ module Single_Cycle_Top (alu_Carry_Out,alu_Negative_Out,alu_Zero_Out,random,clk,
     );
 
     
-
     Sign_Extend Sign_Extend(
         .In_Str(RD_Instr),
         .Extended_Out(SignExt_Top)

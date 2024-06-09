@@ -23,9 +23,11 @@ module Data_Mem (A,WD,WE,RE,clk,RD,rst);
             end
     end
 
-    // We can Initialize Data Of The Memory From Here!
-    // initial begin
-    //     Mem[9] = 16'b0000000000000000;
-    // end
+    //We can Initialize Data Of The Memory From Here!
+    initial begin
+        Data_MEM[0] = 16'b0000000000000000;
+        Data_MEM[1] = 16'b0000000000000001;
+        Data_MEM[2] = 16'b0000000000000010;
+    end
 
 endmodule
